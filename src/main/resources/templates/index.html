@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<a class="btn btn-success mb-3" th:href="@{'/student/create'}">Create Student</a>
+<a class="btn btn-success mb-3" th:href="@{'/clazz/create'}">Create Class</a>
+<div>
+    <table class="table">
+        <tr>
+            <th>Class Id</th>
+            <th>Class name</th>
+            <th>Option</th>
+        </tr>
+        <tr th:each="book: ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.name}"></td>
+            <td><a class="btn btn-warning" th:href="@{'/book/' + ${book.id}}" th:text="Details"></a> </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
